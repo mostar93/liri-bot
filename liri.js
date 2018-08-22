@@ -31,6 +31,7 @@ function getBand (){
 function getmovie(){
     request(ombdURL, function(error, response, body){
         if (!error && response.statusCode === 200){
+            
             console.log("===========================\n")
             console.log("Title:  " + JSON.parse(body).Title);
             console.log("Year:  " + JSON.parse(body).Year);
@@ -73,8 +74,9 @@ function doIt() {
             return console.log(error);
         } else {
             console.log(data);
-            // song = data.slice("");
-            // console.log(song);
+            backstreet = data.split(",");
+            song = backstreet[1];
+            getSong();
         }
     })
 }
